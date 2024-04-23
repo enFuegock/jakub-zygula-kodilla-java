@@ -14,8 +14,7 @@ public class WeatherForecast {
         for (Map.Entry<String, Double> temperature :
                 temperatures.getTemperatures().entrySet()) {
 
-            // adding 1 celsius degree to current value
-            // as a temporary weather forecast
+
             resultMap.put(temperature.getKey(), temperature.getValue() + 1.0); // [1]
         }
         return resultMap;
@@ -48,7 +47,3 @@ public class WeatherForecast {
     }
 }
 
-/*
-Napisz metodę (i test do niej), która na podstawie danych z interfejsu obliczy średnią temperaturę,
-Napisz metodę (i test do niej), która na podstawie danych z interfejsu obliczy medianę temperatur.
- */
