@@ -1,4 +1,4 @@
-package com.kodilla.exception.index;
+package com.kodilla.exception.test;
 
 public class FlightSearchEngineRunner {
     public static void main(String[] args) {
