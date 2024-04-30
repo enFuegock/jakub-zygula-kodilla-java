@@ -127,7 +127,7 @@ class BoardTestSuite {
 
 
     @Test
-    void testAddTaskListFindLongTasks() {
+    void testAddTaskListFindintTasks() {
         //Given
         Board project = prepareTestData();
 
