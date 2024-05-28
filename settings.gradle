@@ -5,4 +5,5 @@ include 'kodilla-exception'
 include 'kodilla-additionalTasks'
 include 'kodilla-stream'
 include 'kodilla-spring-intro'
+include 'kodilla-spring'
 
