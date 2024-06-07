@@ -28,9 +28,19 @@ CREATE TABLE POSTS (
 );
 
 INSERT INTO POSTS (USER_ID, BODY) VALUES (1, 'This is my first post on this forum!');
+INSERT INTO POSTS (USER_ID, BODY) VALUES (12, 'This is my first post too!');
+INSERT INTO POSTS (USER_ID, BODY) VALUES (7, 'How are you?');
+INSERT INTO POSTS (USER_ID, BODY) VALUES (11, 'Quite good, thanks bro!');
+INSERT INTO POSTS (USER_ID, BODY) VALUES (14, 'Yo all! Here is Thomas!');
+INSERT INTO POSTS (USER_ID, BODY) VALUES (11, 'This is my first post on this forum!');
 INSERT INTO POSTS (USER_ID, BODY) VALUES (2, 'This is my first post too!');
-INSERT INTO POSTS (USER_ID, BODY) VALUES (2, 'How are you?');
+INSERT INTO POSTS (USER_ID, BODY) VALUES (9, 'How are you?');
 INSERT INTO POSTS (USER_ID, BODY) VALUES (1, 'Quite good, thanks bro!');
+INSERT INTO POSTS (USER_ID, BODY) VALUES (4, 'Yo all! Here is Thomas!');
+INSERT INTO POSTS (USER_ID, BODY) VALUES (1, 'This is my first post on this forum!');
+INSERT INTO POSTS (USER_ID, BODY) VALUES (2, 'This is my first post too!');
+INSERT INTO POSTS (USER_ID, BODY) VALUES (5, 'How are you?');
+INSERT INTO POSTS (USER_ID, BODY) VALUES (9, 'Quite good, thanks bro!');
 INSERT INTO POSTS (USER_ID, BODY) VALUES (4, 'Yo all! Here is Thomas!');
 
 CREATE TABLE ISSUESLISTS (
