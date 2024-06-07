@@ -1,0 +1,32 @@
+Napisz kilka zapytań SQL, oto co powinny one zwracać:
+
+
+
+Listę zadań z tabeli ISSUESS z dołączonymi do nich nazwami list zadań z tabeli ISSUESLISTS
+SELECT
+    A.SUMMARY, B.NAME
+FROM
+    ISSUES A
+        JOIN
+    ISSUESLISTS B ON A.ISSUESLISTS_ID = B.ID
+
+
+Listę zadań z tabeli ISSUESS z przypisanymi do nich użytkownikami z tabeli USERS
+SELECT
+    A.SUMMARY, B.FIRSTNAME, B.LASTNAME
+FROM
+    ISSUES A
+        JOIN
+    USERS B ON A.USER_ID_ASSIGNEDTO = B.ID
+
+
+Imiona i nazwiska użytkowników posiadających zadania, wraz z informacją o ilości zadań, które są do nich przypisane
+SELECT
+    A.FIRSTNAME, A.LASTNAME, COUNT(*) AS ISSUES_QUANTITY
+FROM
+    USERS A
+        JOIN
+    ISSUES B ON A.ID = B.USER_ID_ASSIGNEDTO
+GROUP BY
+    A.FIRSTNAME, A.LASTNAME
+HAVING COUNT(*) > 0;
