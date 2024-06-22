@@ -1,0 +1,27 @@
+{
+    "carBrand": "Toyota",
+    "carModel": "AE 86",
+    "fotele": [
+    {
+        "material": "Leather",
+        "kolor": "Brown"
+    },
+    {
+        "material": "Vinyl",
+        "kolor": "Red"
+    },
+    {
+        "material": "FauxLeather",
+        "kolor": "Black"
+    },
+    {
+        "material": "Alcantara",
+        "kolor": "White"
+    },
+    {
+        "material": "Polyester",
+        "kolor": "Green"
+    }
+    ],
+    "engineCapacity": "1.6L"
+}

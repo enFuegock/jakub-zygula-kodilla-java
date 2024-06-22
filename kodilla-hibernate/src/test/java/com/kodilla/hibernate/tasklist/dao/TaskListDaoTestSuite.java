@@ -1,44 +1,65 @@
 package com.kodilla.hibernate.tasklist.dao;
 
+import com.kodilla.hibernate.task.Task;
+import com.kodilla.hibernate.task.TaskFinancialDetails;
 import com.kodilla.hibernate.tasklist.TaskList;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import static org.junit.jupiter.api.Assertions.*;
 
+import java.math.BigDecimal;
 import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 @SpringBootTest
 public class TaskListDaoTestSuite {
 
     @Autowired
-    private TaskListDao taskListDao;
-
-    private TaskList taskList;
-
-    @BeforeEach
-    public void setup() {
-        taskList = new TaskList("Test TaskList", "Test Description");
-        taskListDao.save(taskList);
-    }
-
-    @AfterEach
-    public void cleanup() {
-        taskListDao.deleteAll();
-    }
+    TaskListDao taskListDao;
+    private static final String NAME = "TestList";
 
     @Test
     void testFindByListName() {
-        // Given
-        String listName = "Test TaskList";
+        //Given
+        TaskList taskList = new TaskList(NAME, "list to testing");
+        //When
+        taskListDao.save(taskList);
 
-        // When
-        List<TaskList> result = taskListDao.findByListName(listName);
+        //Then
+        String nameToFind = taskList.getListName();
+        List<TaskList> readTaskList = taskListDao.findByListName(nameToFind);
+        assertEquals(1, readTaskList.size());
 
-        // Then
-        assertEquals(1, result.size());
-        assertEquals(listName, result.get(0).getListName());
+        //cleanUp
+        int id = taskList.getId();
+        taskListDao.deleteById(id);
+    }
+
+    @Test
+    void testTaskListDaoSaveWithTask() {
+        //Given
+        Task task = new Task("Test: Learn Hibernate", 14);
+        Task task2 = new Task("Test: write some entities", 3);
+        TaskFinancialDetails tfd = new TaskFinancialDetails(new BigDecimal(20), false);
+        TaskFinancialDetails tfd2 = new TaskFinancialDetails(new BigDecimal(10), false);
+        task.setTaskFinancialDetails(tfd);
+        task2.setTaskFinancialDetails(tfd2);
+        TaskList taskList = new TaskList(NAME, "ToDo tasks");
+        taskList.getTasks().add(task);
+        taskList.getTasks().add(task2);
+        task.setTaskList(taskList);
+        task2.setTaskList(taskList);
+
+        //When
+        taskListDao.save(taskList);
+        int id = taskList.getId();
+
+        //Then
+        assertNotEquals(0, id);
+
+        //CleanUp
+        taskListDao.deleteById(id);
     }
 }
